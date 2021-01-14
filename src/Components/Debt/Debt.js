@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 
-function Bill(props) {
+function Debt(props) {
     const bill = props.bill
     const [hide, setHide] = useState('hidden')
     const [show, setShow] = useState('')
-    const [paid, setPaid] = useState(bill.amtPaid)
+    const [paid, setPaid] = useState(bill.amt_paid)
     
     const expand = () => {
         show === '' ? setShow('hidden') : setShow('')
@@ -20,8 +20,8 @@ function Bill(props) {
 
 
     return (
-        <tr><button onClick={(e)=> handleDelete(e)}>x</button><td>{bill.name}</td><td>${bill.amount}</td><td><p className={show}  onClick={expand}>${bill.amtPaid}</p> <p className={hide}>$<input type='text' value={paid} onChange={(e)=>setPaid(e.target.value)}/> <button onClick={(e)=>handleEdit(e)}> + </button></p> </td></tr>
+        <tr><button onClick={(e)=> handleDelete(e)}>x</button><td>{bill.name}</td><td>${bill.curr_bal}</td> <td>${bill.monthly_min}</td> <td><p className={show}  onClick={expand}>${bill.amt_paid}</p> <p className={hide}>$<input type='text' value={paid} onChange={(e)=>setPaid(e.target.value)}/> <button onClick={(e)=>handleEdit(e)}> + </button></p> </td></tr>
     )
 }
 
-export default Bill
+export default Debt
