@@ -101,4 +101,5 @@ padding: 0px 3px 0px 3px;
 .dashboard {
   display: flex;
   flex-direction:row;
+  flex-wrap: wrap;
 }

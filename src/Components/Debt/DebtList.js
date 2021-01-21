@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import Debt from './Debt'
 
 function DebtList() {
@@ -8,8 +8,8 @@ function DebtList() {
     }
     const bills = [
         {id: 1, name: 'Student Loan', curr_bal: '35,550', monthly_min: '150', amt_paid: '150'},
-        {id: 2, name: 'Credit Card',curr_bal: '550', monthly_min: '185', amt_paid: '0'},   
-        {id: 3, name: 'Mortgage', curr_bal: '278,550', monthly_min: '2,550', amt_paid: '1250'},         
+        {id: 2, name: 'Credit Card', curr_bal: '550', monthly_min: '185', amt_paid: '0'},   
+        {id: 3, name: 'Mortgage', curr_bal: '378,550', monthly_min: '2,550', amt_paid: '1250'},         
         {id: 4, name: 'Furniture', curr_bal: '2,550', monthly_min: '124', amt_paid: '0'},
         {id: 5, name: 'Truck', curr_bal: '32,550', monthly_min: '498', amt_paid: '0'},
     ]
