@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import config from '../../config'
 
 function Income(props) {
     const income = props.income
@@ -14,9 +15,24 @@ function Income(props) {
         expand()
         props.submit(paid)
     }
-    const handleDelete = (e) => {
-        console.log(paid)
-    }
+    async function handleDelete(e) {
+        try {
+          const response = await fetch(
+            `${config.API_ENDPOINT}/api/income/${income.id}`,
+            {
+              method: "DELETE",
+              headers: { token: localStorage.token },
+            }
+          );
+          const parseRes = await response.json();
+    
+          console.log(parseRes);
+        } catch (error) {
+          console.error(error.message);
+        }
+      }
+
+    
 
 
     return (

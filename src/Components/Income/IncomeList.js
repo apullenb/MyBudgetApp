@@ -28,7 +28,7 @@ function IncomeList(props) {
 
     useEffect(() => {
         getallIncome();
-        props.total(income)
+        
       }, []);
    
     const handleSubmit = (value) => {
@@ -40,6 +40,7 @@ function IncomeList(props) {
         for(let i=0; i < income.length; i++){
             total = parseInt(income[i].amount) + total
         }
+        props.total(total)
         return total
     }
    

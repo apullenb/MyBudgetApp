@@ -1,9 +1,10 @@
 import React from 'react'
+import image from './image0.png'
 
 function Header() {
     return (
         <div>
-            <h1>myBudget App</h1>
+            <img src={image}/>
         </div>
     )
 }
