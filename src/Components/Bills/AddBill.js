@@ -43,8 +43,11 @@ function AddBill(props) {
           alert(parseRes.error);
           console.error(parseRes.error);
         } else {
-          alert("Success! Your Entry Has Been Posted!");
-          props.location.push("/Dashboard");
+          props.close()
+          setInputs( {bill_name: "",
+          bill_amt: "",
+          amt_paid: '0'})
+          props.getAll()
           
         }
       };
@@ -64,7 +67,7 @@ function AddBill(props) {
               type="text"
               name="bill_amt"
               onChange={(e) => onChange(e)}
-              value={bill_amt}
+              value={bill_amt.replace(/,/g, '')}
               required
             />
              
@@ -72,7 +75,7 @@ function AddBill(props) {
               <input
               type="text"
               name="amt_paid"
-              value={amt_paid}
+              value={amt_paid.replace(/,/g, '')}
               onChange={(e)=> onChange(e)}
             />
              {' '}

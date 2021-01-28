@@ -58,7 +58,7 @@ td p {
   margin: 2px 2px;
 }
 
-td:hover {
+.edit:hover {
   background-color: rgb(202, 204, 203);
 }
 .hidden {

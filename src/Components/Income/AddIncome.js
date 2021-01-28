@@ -36,8 +36,12 @@ function AddIncome(props) {
       alert(parseRes.error);
       console.error(parseRes.error);
     } else {
-      alert("Success! Your Entry Has Been Posted!");
-      props.history.push("/Dashboard");
+      props.close()
+      setInputs({
+        source: "",
+        amount: "",
+      })
+      props.getAll()
     }
   };
 
@@ -59,7 +63,7 @@ function AddIncome(props) {
           type="text"
           name="amount"
           onChange={(e) => onChange(e)}
-          value={amount}
+          value={amount.replace(/,/g, '')}
           required
         />
       </span>{" "}

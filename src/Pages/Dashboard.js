@@ -10,7 +10,7 @@ function Dashboard() {
         const [billTotal, setBillTotal] = useState('')
 
     let newDate = new Date()
-    let dateToday = moment(newDate).format("LLLL")
+    let dateToday = moment(newDate).format("LL")
     let month = moment(newDate).format('MMMM')
 
     function getIncTotal(value) {

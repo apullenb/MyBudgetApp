@@ -1,41 +1,76 @@
-import React, {useState} from 'react';
-import config from '../../config'
+import React, { useState } from "react";
+import config from "../../config";
 
 function Debt(props) {
-    const debt = props.debt
-    const [hide, setHide] = useState('hidden')
-    const [show, setShow] = useState('')
-    const [paid, setPaid] = useState()
-    
-    const expand = () => {
-        show === '' ? setShow('hidden') : setShow('')
-        hide === 'hidden' ? setHide('expand') : setHide('hidden')
-    }
-    const handleEdit = (e) => {
-        expand()
-        props.submit(paid)
-    }
-    async function handleDelete(e) {
-        try {
-          const response = await fetch(
-            `${config.API_ENDPOINT}/api/debt/${debt.id}`,
-            {
-              method: "DELETE",
-              headers: { token: localStorage.token },
-            }
-          );
-          const parseRes = await response.json();
-    
-          console.log(parseRes);
-        } catch (error) {
-          console.error(error.message);
+  const debt = props.debt;
+  const [hide, setHide] = useState("hidden");
+  const [show, setShow] = useState("");
+  const [paid, setPaid] = useState(debt.amt_paid);
+
+  const expand = () => {
+    show === "" ? setShow("hidden") : setShow("");
+    hide === "hidden" ? setHide("expand") : setHide("hidden");
+  };
+ 
+ 
+
+ 
+  async function handleEdit(e) {
+      const body = {amt_paid: paid.replace(/,/g, ''), curr_bal: (debt.curr_bal - paid.replace(/,/g, ''))}
+        const token = localStorage.getItem("token");
+        const response = await fetch(`${config.API_ENDPOINT}/api/debt/${debt.id}`, {
+          method: "PATCH",
+          headers: { "content-type": "application/json", token: `${token}` },
+          body: JSON.stringify(body),
+        });
+        const parseRes = await response
+        if (parseRes.error) {
+          console.error(parseRes.error);
+        } else { 
+      expand();
+      props.submit(paid);
+      props.getAll();
         }
-      }
+  }
+   
+  
+  async function handleDelete(e) {
+    try {
+       await fetch(
+        `${config.API_ENDPOINT}/api/debt/${debt.id}`,
+        {
+          method: "DELETE",
+          headers: { token: localStorage.token },
+        }
+      );
+      props.getAll();
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
 
-
-    return (
-        <tr><button onClick={(e)=> handleDelete(e)}>x</button><td>{debt.name}</td><td>${debt.start_bal}</td><td>${debt.curr_bal}</td> <td>${debt.monthly_min}</td> <td><p className={show}  onClick={expand}>${debt.amt_paid}</p> <p className={hide}>$<input type='text' value={paid} onChange={(e)=>setPaid(e.target.value)}/> <button onClick={(e)=>handleEdit(e)}> + </button></p> </td></tr>
-    )
+  return (
+    <tr>
+      <button onClick={(e) => handleDelete(e)}>x</button>
+      <td>{debt.name}</td>
+      <td>${debt.start_bal.toLocaleString()}</td>
+      <td>${debt.curr_bal.toLocaleString()}</td> <td>${debt.monthly_min}</td>{" "}
+      <td >
+        <p className={show} onClick={expand}>
+          ${debt.amt_paid.toLocaleString()}
+        </p>{" "}
+        <p className={hide}>
+          $
+          <input
+            type="text"
+            value={paid}
+            onChange={(e) => setPaid(e.target.value)}
+          />{" "}
+          <button onClick={(e) => handleEdit(e)}> + </button>
+        </p>{" "}
+      </td>
+    </tr>
+  );
 }
 
-export default Debt
+export default Debt;

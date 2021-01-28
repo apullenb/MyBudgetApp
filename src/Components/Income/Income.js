@@ -24,9 +24,7 @@ function Income(props) {
               headers: { token: localStorage.token },
             }
           );
-          const parseRes = await response.json();
-    
-          console.log(parseRes);
+         props.getAll()
         } catch (error) {
           console.error(error.message);
         }

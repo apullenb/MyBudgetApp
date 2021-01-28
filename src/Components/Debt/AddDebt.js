@@ -6,11 +6,11 @@ function AddDebt(props) {
     const month = props.month
 
     const [inputs, setInputs] = useState({
-        name: "",
-        start_bal: "",
+        name: '',
+        start_bal: '',
         curr_bal:'',
         monthly_min:'',
-        amt_paid: '0',
+        amt_paid: '',
       });
       
       const {
@@ -34,7 +34,7 @@ function AddDebt(props) {
         amt_paid,
          month
         };
-       
+       console.log(body)
         if (inputs === "") {
           return alert("Please fill out all fields");
         }
@@ -46,10 +46,18 @@ function AddDebt(props) {
         });
         const parseRes = await response.json();
         if (parseRes.error) {
-          alert(parseRes.error);
+          alert('Please Fill Out All Fields or Cancel!');
           console.error(parseRes.error);
         } else {
-          alert("Success! Your Entry Has Been Posted!");
+          props.close()
+          setInputs({
+            name: "",
+            start_bal: "",
+            curr_bal:'',
+            monthly_min:'',
+            amt_paid: '0',
+          })
+          props.getAll()
           
         }
       };
@@ -67,7 +75,7 @@ function AddDebt(props) {
               type="text"
               name="start_bal"
               onChange={(e) => onChange(e)}
-              value={start_bal}
+              value={start_bal.replace(/,/g, '')}
               required
             /></span>
              
@@ -75,21 +83,21 @@ function AddDebt(props) {
               <input
               type="text"
               name="curr_bal"
-              value={curr_bal}
+              value={curr_bal.replace(/,/g, '')}
               onChange={(e)=> onChange(e)}
             /></span>
              <span> Monthly Minimum:
               <input
               type="text"
               name="monthly_min"
-              value={monthly_min}
+              value={monthly_min.replace(/,/g, '')}
               onChange={(e)=> onChange(e)}
             /></span>
              <span> Amount Paid:
               <input
               type="text"
               name="amt_paid"
-              value={amt_paid}
+              value={amt_paid.replace(/,/g, '')}
               onChange={(e)=> onChange(e)}
             /></span>
              {' '}

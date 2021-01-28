@@ -12,7 +12,7 @@ function BillsList(props) {
     display === 'hidden' ? setDisplay('expand') : setDisplay('hidden')
    }
 
-   async function getallBills() {
+   async function getAllBills() {
     try {
         const response = await fetch(`${config.API_ENDPOINT}/api/bills`, {
           method: "GET",
@@ -27,7 +27,7 @@ function BillsList(props) {
     }
 
     useEffect(() => {
-        getallBills();
+        getAllBills();
       }, []);
 
     const handleSubmit = (value) => {
@@ -35,6 +35,7 @@ function BillsList(props) {
     }
    
     let amountDue = totalDue() - totalPaid()
+    
     props.total(amountDue)
 
     function totalDue() {
@@ -57,15 +58,15 @@ function BillsList(props) {
             <h3>Bills</h3>
             <table>
                 <tr>
-                <th> </th>    <th className='head'>Bill Name</th>  <th className='head'>Amount Due</th>  <th className='head'>Amount Paid</th> <th className='head'>Amount Remaining </th> 
+                <th> </th><th className='head'>Bill Name</th>  <th className='head'>Amount Due</th>  <th className='head'>Amount Paid</th> <th className='head'>Amount Remaining </th> 
                 </tr>
                 {bills.length ?  (   bills.map(source => {
-             return <Bill key ={source.id} bill={source} submit={handleSubmit} />
+             return <Bill key ={source.id} bill={source} submit={handleSubmit} getAll={getAllBills} />
             }) ) : (<h4>Loading..Please Wait</h4> ) } 
             
-            <th> </th>  <th>{display === 'hidden' && (<button onClick={addNew}>+ Add New</button> )} </th> <th>Total:  ${totalDue()}</th> <th>Total Paid: ${totalPaid()}</th> <th>Total Remaining:  ${amountDue}</th>
+            <th> </th>  <th>{display === 'hidden' && (<button onClick={addNew}>+ Add New</button> )} </th> <th>Total:  ${totalDue().toLocaleString()}</th> <th>Total Paid: ${totalPaid().toLocaleString()}</th> <th>Total Remaining:  ${amountDue.toLocaleString()}</th>
             </table>
-            <section className={display}><AddBill month={props.month}/> <button onClick={addNew}>Cancel</button> 
+            <section className={display}><AddBill month={props.month} getAll={getAllBills} close={addNew}/> <button onClick={addNew}>Cancel</button> 
              </section>
         </div>
     )

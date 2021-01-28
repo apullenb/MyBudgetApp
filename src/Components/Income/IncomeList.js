@@ -54,13 +54,13 @@ function IncomeList(props) {
                 <th> </th> <th className='head'>Source</th>  <th className='head'>Amount</th> 
                 </tr>
                 {income.length ?  (   income.map(source => {
-             return <Income key ={source.id} income={source} submit={handleSubmit} />
+             return <Income key ={source.id} income={source} submit={handleSubmit} getAll={getallIncome} />
             }) ) : (<h4>Loading..Please Wait</h4> ) } 
             <tr>
             <th> </th>  <th>{display === 'hidden' && (<button onClick={addNew}>+ Add New</button> )} </th> <th>Total: {' '} ${totalIncome()}</th> 
-            </tr>
-            <tr className={display}> <AddIncome month={props.month}/> <button onClick={addNew}>Cancel</button> </tr>
-             </table>  
+            </tr> </table> 
+            <section className={display}> <AddIncome month={props.month} getAll={getallIncome} close={addNew}/> <button onClick={addNew}>Cancel</button> </section>
+             
              </div>
     )
 }
