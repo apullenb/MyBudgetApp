@@ -10,7 +10,7 @@ function AddDebt(props) {
         start_bal: '',
         curr_bal:'',
         monthly_min:'',
-        amt_paid: '',
+        amt_paid: 0,
       });
       
       const {
@@ -63,15 +63,16 @@ function AddDebt(props) {
       };
     
       return (
-        <div>
-            <span>Debt Name: <input
+        <div style={{border:'1px solid gray', padding:'15px', backgroundColor:'#d4ebfd8e'}}>
+            <h3>Add New Debt</h3>
+            <span>Debt Name: <input style={{marginLeft:'1px', marginRight:'8px', padding:'0px 55px'}}
               type="text"
               name="name"
               onChange={(e) => onChange(e)}
               value={name}
             /></span>
           
-          <span> Starting Balance: $<input
+          <span> Starting Balance: $<input style={{marginLeft:'1px', marginRight:'8px', padding:'0px 5px'}}
               type="text"
               name="start_bal"
               onChange={(e) => onChange(e)}
@@ -80,26 +81,26 @@ function AddDebt(props) {
             /></span>
              
             <span> Current Balance:
-              <input
+              $<input style={{marginLeft:'1px', marginRight:'8px', padding:'0px 5px'}}
               type="text"
               name="curr_bal"
               value={curr_bal.replace(/,/g, '')}
               onChange={(e)=> onChange(e)}
             /></span>
-             <span> Monthly Minimum:
-              <input
+             <span> Monthly Min:
+              $<input style={{marginLeft:'1px', marginRight:'8px', padding:'0px 5px'}}
               type="text"
               name="monthly_min"
               value={monthly_min.replace(/,/g, '')}
               onChange={(e)=> onChange(e)}
             /></span>
-             <span> Amount Paid:
+             {/* <span> Amount Paid:
               <input
               type="text"
               name="amt_paid"
               value={amt_paid.replace(/,/g, '')}
               onChange={(e)=> onChange(e)}
-            /></span>
+            /></span> */}
              {' '}
             <span> <button onClick={onSubmit}> Submit</button></span>
 

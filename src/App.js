@@ -2,7 +2,7 @@ import './App.css';
 import {  BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faEdit } from '@fortawesome/free-solid-svg-icons'
+import { faEdit, faPen, faCoins } from '@fortawesome/free-solid-svg-icons'
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Header from './Components/Header'
@@ -11,7 +11,7 @@ import Register from './Pages/Register'
 import config from './config'
 
 
-library.add(faEdit)
+library.add(faEdit, faPen, faCoins)
 
 function App() {
 

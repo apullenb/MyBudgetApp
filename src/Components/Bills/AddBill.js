@@ -53,17 +53,17 @@ function AddBill(props) {
       };
     
       return (
-        <div>
+        <div style={{border:'1px solid gray', padding:'15px', backgroundColor:'#d4ebfd8e'}}>
           <h3>Add A New Bill</h3>
           
-            Bill Name: <input
+            Bill Name: <input style={{marginLeft:'1px', marginRight:'8px', padding:'0px 55px'}}
               type="text"
               name="bill_name"
               onChange={(e) => onChange(e)}
               value={bill_name}
             />
           
-           Bill Amount: $<input
+           Bill Amount: $<input style={{marginLeft:'1px', marginRight:'8px', padding:'0px 5px'}}
               type="text"
               name="bill_amt"
               onChange={(e) => onChange(e)}
@@ -72,7 +72,7 @@ function AddBill(props) {
             />
              
              Amount Paid:
-              <input
+              $<input style={{marginLeft:'1px', marginRight:'8px', padding:'0px 5px'}}
               type="text"
               name="amt_paid"
               value={amt_paid.replace(/,/g, '')}

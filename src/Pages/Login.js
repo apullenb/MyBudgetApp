@@ -24,6 +24,7 @@ function LoginForm({ setAuth }) {
       );
 
       const parseRes = await response.json();
+      console.log(parseRes.user_name)
       if (parseRes.token) {
         localStorage.setItem("token", parseRes.token);
         setAuth(true);
@@ -36,7 +37,7 @@ function LoginForm({ setAuth }) {
     }
   };
   return (
-    <div>
+    <div className='login'>
       <h2>Login</h2>
       <form>
         <label>
@@ -64,16 +65,15 @@ function LoginForm({ setAuth }) {
           </p>{" "}
         </label>
         <button onClick={handleSubmit}>Login</button>
-      </form>
-      <h4>
-        Need to Create an Account?{" "}
+      </form>{" "}
+      <p> {" "}Need to Create an Account?{" "}</p>
         <Link to={{ pathname: "/register" }}>
           {" "}
           <button>
             Create Account
           </button>
         </Link>{" "}
-      </h4>
+      
       </div>
   );
 }

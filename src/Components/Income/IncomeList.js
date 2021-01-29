@@ -55,7 +55,7 @@ function IncomeList(props) {
                 </tr>
                 {income.length ?  (   income.map(source => {
              return <Income key ={source.id} income={source} submit={handleSubmit} getAll={getallIncome} />
-            }) ) : (<h4>Loading..Please Wait</h4> ) } 
+            }) ) : (<h4>No Income Added Yet</h4> ) } 
             <tr>
             <th> </th>  <th>{display === 'hidden' && (<button onClick={addNew}>+ Add New</button> )} </th> <th>Total: {' '} ${totalIncome()}</th> 
             </tr> </table> 

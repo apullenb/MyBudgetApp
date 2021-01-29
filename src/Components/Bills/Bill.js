@@ -60,7 +60,7 @@ function Bill(props) {
       <td>${bill.bill_amt.toLocaleString()}</td>
       <td>
         <p className={show} onClick={expand}>
-          ${bill.amt_paid} <FontAwesomeIcon icon="edit" style={{fontSize:'15px', marginLeft:'10px'}}/>
+          ${bill.amt_paid} <FontAwesomeIcon icon="pen" style={{fontSize:'15px', marginLeft:'15px', color:'#1f3564'}}/>
         </p>
         <p className={hide}>
           $

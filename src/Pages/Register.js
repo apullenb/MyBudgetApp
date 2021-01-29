@@ -41,7 +41,7 @@ function Register(props) {
     }
   };
   return (
-    <div>
+    <div className='login'>
       <h2>Register</h2>
       <form>
         <label>

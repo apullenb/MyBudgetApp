@@ -7,7 +7,7 @@ function Remainder(props) {
             <h3>{props.month} Totals:</h3>
             <table>
                 <th className='head'>Income</th> <th className='head'>Bills</th>
-                <tr> <td>${props.income}</td> <td>${props.billsDue}</td>
+                <tr> <td>${props.income.toLocaleString()}</td> <td>${props.billsDue}</td>
                 </tr><tr><th className='head'>Remaining Funds</th><th className='head'>${total}</th></tr>
                 </table>
         </div>

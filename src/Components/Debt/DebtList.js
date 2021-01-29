@@ -23,10 +23,11 @@ function DebtList(props) {
       console.error(error.message);
     }
   }
-
+  
   useEffect(() => {
     getallDebt();
   }, []);
+
   const handleSubmit = (value) => {
     console.log("submitted!" + value);
   };
@@ -68,8 +69,8 @@ function DebtList(props) {
           <th className="head">Monthly Minimum</th>{" "}
           <th className="head">Payment Amount</th>
         </tr>
-        {debt.length ? (
-          debt.map((source) => {
+      
+         {debt.length ? ( debt.map((source) => {
             return (
               <Debt
                 key={source.id}
@@ -77,16 +78,8 @@ function DebtList(props) {
                 submit={handleSubmit}
                 getAll={getallDebt}
               />
-            );
-          })
-        ) : (
-          <tr>
-            <td></td>
-            <td>
-              <h4>Loading..Please Wait</h4>
-            </td>{" "}
-          </tr>
-        )}
+            )})
+          ) : ( <h4>No Debt Added Yet</h4> )}
         <tr>
           <th> </th>{" "}
           <th>

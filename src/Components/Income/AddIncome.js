@@ -46,10 +46,11 @@ function AddIncome(props) {
   };
 
   return (
-    <div>
+    <div style={{border:'1px solid gray', padding:'15px', backgroundColor:'#d4ebfd8e'}}>
+    <h3>Add New Income</h3>
       <span>
         Income Source:{" "}
-        <input
+        <input style={{marginLeft:'1px', marginRight:'8px', padding:'0px 55px'}}
           type="text"
           name="source"
           onChange={(e) => onChange(e)}
@@ -59,7 +60,7 @@ function AddIncome(props) {
       <span>
         {" "}
         Income Amount: $
-        <input
+        <input style={{marginLeft:'1px', marginRight:'8px', padding:'0px 5px'}}
           type="text"
           name="amount"
           onChange={(e) => onChange(e)}
