@@ -58,10 +58,10 @@ function BillsList(props) {
       <table>
         <tr>
           <th> </th>
-          <th className="head">Bill Name</th>{" "}
-          <th className="head">Amount Due</th>{" "}
-          <th className="head">Amount Paid</th>{" "}
-          <th className="head">Amount Remaining </th>
+          <th className="head">Bill Name</th>
+          <th className="head">Amount Due</th>
+          <th className="head">Amount Paid</th>
+          <th className="head">Balance Due </th>
         </tr>
         
          {bills.length ? ( bills.map((source) => {
@@ -76,15 +76,15 @@ function BillsList(props) {
           })
          ) : ( <h4>No Bills Added Yet</h4>) }
         
-        <th> </th>{" "}
+        <th> </th>
         <th>
-          {display === "hidden" && <button onClick={addNew}>+ Add New</button>}{" "}
-        </th>{" "}
-        <th>Total: ${totalDue()}</th> <th>Total Paid: ${totalPaid()}</th>{" "}
-        <th>Total Remaining: ${amountDue.toLocaleString()}</th>
+          {display === "hidden" && <button onClick={addNew}>+ Add New</button>}
+        </th>
+        <th>Total: ${totalDue()}</th> <th>Total Paid: ${totalPaid()}</th>
+        <th>Total Due: ${amountDue.toLocaleString()}</th>
       </table>
       <section className={display}>
-        <AddBill month={props.month} getAll={getAllBills} close={addNew} />{" "}
+        <AddBill month={props.month} getAll={getAllBills} close={addNew} />
         <button onClick={addNew}>Cancel</button>
       </section>
     </div>

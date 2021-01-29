@@ -9,7 +9,7 @@ function Bill(props) {
   const [paid, setPaid] = useState(bill.amt_paid);
 
   const expand = () => {
-    show === "" ? setShow("hidden") : setShow("");
+    show === "edit" ? setShow("hidden") : setShow("edit");
     hide === "hidden" ? setHide("expand") : setHide("hidden");
   };
 
@@ -55,7 +55,7 @@ function Bill(props) {
 
   return (
     <tr>
-      <button onClick={(e) => handleDelete(e)}>x</button>
+      <button id='x' onClick={(e) => handleDelete(e)}>x</button>
       <td>{bill.bill_name}</td>
       <td>${bill.bill_amt.toLocaleString()}</td>
       <td>

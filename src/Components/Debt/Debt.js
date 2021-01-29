@@ -9,7 +9,7 @@ function Debt(props) {
   const [paid, setPaid] = useState(debt.amt_paid);
 
   const expand = () => {
-    show === "" ? setShow("hidden") : setShow("");
+    show === "edit" ? setShow("hidden") : setShow("edit");
     hide === "hidden" ? setHide("expand") : setHide("hidden");
   };
  
@@ -51,24 +51,24 @@ function Debt(props) {
   }
 
   return (
-    <tr>
-      <button onClick={(e) => handleDelete(e)}>x</button>
+    <tr >
+      <button id='x' onClick={(e) => handleDelete(e)}>x</button>
       <td>{debt.name}</td>
       <td>${debt.start_bal.toLocaleString()}</td>
-      <td>${debt.curr_bal.toLocaleString()}</td> <td>${debt.monthly_min}</td>{" "}
+      <td>${debt.curr_bal.toLocaleString()}</td> <td>${debt.monthly_min}</td>
       <td >
         <p className={show} onClick={expand}>
-          ${debt.amt_paid.toLocaleString()} <FontAwesomeIcon icon="pen" style={{fontSize:'15px', marginLeft:'15px', color:'#1f3564'}}/>
-        </p>{" "}
+          ${debt.amt_paid.toLocaleString()} <FontAwesomeIcon icon="pen" style={{fontSize:'13px', marginLeft:'12px', color:'#1f3564'}}/>
+        </p>
         <p className={hide}>
           $
           <input
             type="text"
             value={paid}
             onChange={(e) => setPaid(e.target.value)}
-          />{" "}
+          />
           <button onClick={(e) => handleEdit(e)}> + </button>
-        </p>{" "}
+        </p>
       </td>
     </tr>
   );

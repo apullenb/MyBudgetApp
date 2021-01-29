@@ -63,10 +63,10 @@ function DebtList(props) {
       <table>
         <tr>
           <th> </th>
-          <th className="head">Name</th>{" "}
-          <th className="head">Starting Balance</th>{" "}
-          <th className="head">Current Balance</th>{" "}
-          <th className="head">Monthly Minimum</th>{" "}
+          <th className="head">Name</th>
+          <th className="head">Starting Balance</th>
+          <th className="head">Current Balance</th>
+          <th className="head">Monthly Min</th>
           <th className="head">Payment Amount</th>
         </tr>
       
@@ -81,21 +81,21 @@ function DebtList(props) {
             )})
           ) : ( <h4>No Debt Added Yet</h4> )}
         <tr>
-          <th> </th>{" "}
-          <th>
+          <th> </th>
+          <th className='head'>
             {display === "hidden" && (
               <button onClick={addNew}>+ Add New</button>
-            )}{" "}
+            )}
           </th>
-          <th> </th> <th>Total Balance: ${totalCurrent().toLocaleString()} </th>{" "}
-          <th>Total Minimum: ${totalMin().toLocaleString()} </th>{" "}
-          <th>Total Paid: ${totalPaid().toLocaleString()} </th>
-        </tr>{" "}
+          <th> </th> <th className='head'>Total Balance: ${totalCurrent().toLocaleString()} </th>
+          <th className='head'>Total Min: ${totalMin().toLocaleString()} </th>
+          <th className='head'>Total Paid: ${totalPaid().toLocaleString()} </th>
+        </tr>
       </table>
       <section className={display}>
-        {" "}
-        <AddDebt month={props.month} getAll={getallDebt} close={addNew} />{" "}
-        <button onClick={addNew}>Cancel</button>{" "}
+        
+        <AddDebt month={props.month} getAll={getallDebt} close={addNew} />
+        <button onClick={addNew}>Cancel</button>
       </section>
     </div>
   );
