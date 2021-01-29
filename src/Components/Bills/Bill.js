@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import config from "../../config";
 
 function Bill(props) {
   const bill = props.bill;
   const [hide, setHide] = useState("hidden");
-  const [show, setShow] = useState("");
+  const [show, setShow] = useState("edit");
   const [paid, setPaid] = useState(bill.amt_paid);
 
   const expand = () => {
@@ -17,7 +18,7 @@ function Bill(props) {
   };
 
   async function handleEdit(e) {
-    const body = { amt_paid: paid.replace(/,/g, '') };
+    const body = { amt_paid: paid};
     const token = localStorage.getItem("token");
     const response = await fetch(
       `${config.API_ENDPOINT}/api/bills/${bill.id}`,
@@ -59,7 +60,7 @@ function Bill(props) {
       <td>${bill.bill_amt.toLocaleString()}</td>
       <td>
         <p className={show} onClick={expand}>
-          ${bill.amt_paid.toLocaleString()}
+          ${bill.amt_paid} <FontAwesomeIcon icon="edit" style={{fontSize:'15px', marginLeft:'10px'}}/>
         </p>
         <p className={hide}>
           $

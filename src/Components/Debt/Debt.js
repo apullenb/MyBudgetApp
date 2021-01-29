@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import config from "../../config";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Debt(props) {
   const debt = props.debt;
   const [hide, setHide] = useState("hidden");
-  const [show, setShow] = useState("");
+  const [show, setShow] = useState("edit");
   const [paid, setPaid] = useState(debt.amt_paid);
 
   const expand = () => {
@@ -16,7 +17,7 @@ function Debt(props) {
 
  
   async function handleEdit(e) {
-      const body = {amt_paid: paid.replace(/,/g, ''), curr_bal: (debt.curr_bal - paid.replace(/,/g, ''))}
+      const body = {amt_paid: paid}
         const token = localStorage.getItem("token");
         const response = await fetch(`${config.API_ENDPOINT}/api/debt/${debt.id}`, {
           method: "PATCH",
@@ -57,7 +58,7 @@ function Debt(props) {
       <td>${debt.curr_bal.toLocaleString()}</td> <td>${debt.monthly_min}</td>{" "}
       <td >
         <p className={show} onClick={expand}>
-          ${debt.amt_paid.toLocaleString()}
+          ${debt.amt_paid.toLocaleString()} <FontAwesomeIcon icon="edit" style={{fontSize:'15px', marginLeft:'15px'}}/>
         </p>{" "}
         <p className={hide}>
           $

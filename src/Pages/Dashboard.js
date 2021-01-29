@@ -21,12 +21,13 @@ function Dashboard() {
     }
     
     return (
-        <div>
-            <h2>My Dashboard</h2>
+        <div className='dashboard'>
+            <section className='headline'><h1>My Dashboard</h1>
             <h4>Today Is: {dateToday} </h4>
+            </section>
             <h2>Current Month: {month}</h2>
-            {incTotal}, {billTotal}
-            <section className='dashboard'>
+           
+            <section className='grid'>
              <div><IncomeList month={month} total={getIncTotal} /></div>
              <div><Remainder month={month} income={incTotal} billsDue= {billTotal} /></div>
             <div><BillsList month={month} total={getBillsTotal} /></div>

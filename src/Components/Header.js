@@ -3,7 +3,7 @@ import image from './image0.png'
 
 function Header() {
     return (
-        <div>
+        <div className='header'>
             <img src={image}/>
         </div>
     )
