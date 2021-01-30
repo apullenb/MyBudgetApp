@@ -39,7 +39,7 @@ function Bill(props) {
   }
 
   async function handleDelete(e) {
-    try {
+    
       const response = await fetch(
         `${config.API_ENDPOINT}/api/bills/${bill.id}`,
         {
@@ -47,10 +47,12 @@ function Bill(props) {
           headers: { token: localStorage.token },
         }
       );
-      props.getAll();
-    } catch (error) {
-      console.error(error.message);
-    }
+      const parseRes = await response;
+      if (parseRes.error) {
+        console.error(parseRes.error);
+      } else {
+        props.getAll();
+      }
   }
 
   return (

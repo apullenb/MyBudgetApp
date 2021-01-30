@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import config from "../../config";
-import { Redirect } from "react-router";
 
 function AddBill(props) {
     const month = props.month

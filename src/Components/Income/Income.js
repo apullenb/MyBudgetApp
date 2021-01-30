@@ -1,20 +1,20 @@
-import React, {useState} from 'react'
+import React from 'react'
 import config from '../../config'
 
 function Income(props) {
     const income = props.income
-    const [hide, setHide] = useState('hidden')
-    const [show, setShow] = useState('')
-    const [paid, setPaid] = useState(income.amount)
+    // const [hide, setHide] = useState('hidden')
+    // const [show, setShow] = useState('')
+   
     
-    const expand = () => {
-        show === '' ? setShow('hidden') : setShow('')
-        hide === 'hidden' ? setHide('expand') : setHide('hidden')
-    }
-    const handleEdit = (e) => {
-        expand()
-        props.submit(paid)
-    }
+    // const expand = () => {
+    //     show === '' ? setShow('hidden') : setShow('')
+    //     hide === 'hidden' ? setHide('expand') : setHide('hidden')
+    // }
+    // const handleEdit = (e) => {
+    //     expand()
+    //     props.submit(paid)
+    // }
     async function handleDelete(e) {
         try {
           const response = await fetch(
@@ -24,6 +24,7 @@ function Income(props) {
               headers: { token: localStorage.token },
             }
           );
+          await response;
          props.getAll()
         } catch (error) {
           console.error(error.message);
