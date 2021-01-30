@@ -80,8 +80,8 @@ function BillsList(props) {
         <th>
           {display === "hidden" && <button onClick={addNew}>+ Add New</button>}
         </th>
-        <th>Total: ${totalDue()}</th> <th>Total Paid: ${totalPaid()}</th>
-        <th>Total Due: ${amountDue.toLocaleString()}</th>
+        <th className='head'>Total: ${totalDue()}</th> <th className='head'>Total Paid: ${totalPaid()}</th>
+        <th className='head'>Total Due: ${amountDue.toLocaleString()}</th>
       </table>
       <section className={display}>
         <AddBill month={props.month} getAll={getAllBills} close={addNew} />

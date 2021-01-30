@@ -58,7 +58,7 @@ function Debt(props) {
       <td>${debt.curr_bal.toLocaleString()}</td> <td>${debt.monthly_min}</td>
       <td >
         <p className={show} onClick={expand}>
-          ${debt.amt_paid.toLocaleString()} <FontAwesomeIcon icon="pen" style={{fontSize:'13px', marginLeft:'12px', color:'#1f3564'}}/>
+        <FontAwesomeIcon icon="pen" style={{fontSize:'13px', marginLeft:'1px', color:'#1f3564'}}/> ${debt.amt_paid.toLocaleString()} 
         </p>
         <p className={hide}>
           $
