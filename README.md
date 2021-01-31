@@ -9,3 +9,8 @@ This app can be viewed live @ https://divvy.vercel.app/
 
 ***
 
+![Dashboard](/screenshots/Divvy User Dash.jpg)
+![Add Bills](/screenshots/Add Bills.jpg)
+![Home](/screenshots/Home Screen.jpg)
+
+***
