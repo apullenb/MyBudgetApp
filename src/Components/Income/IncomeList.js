@@ -45,9 +45,9 @@ function IncomeList(props) {
     <div className="bills">
       <h3>Income</h3>
       {income.length === 0 ? (
-        <div style={{ textAlign: "center", fontWeight: "600", color: "red" }}>
-          Add New Income
-        </div>
+        <h4 style={{ textAlign: "center", fontWeight: "600", color: "red" }}>
+          no income added yet
+        </h4>
       ) : (
         <div></div>
       )}

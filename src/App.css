@@ -244,7 +244,7 @@ td p {
     margin-top: 25px;
   }
   .headline {
-    margin: 15px 1px 1px 1px;
+    margin: 19px 4px;
   }
   .grid {
     display: flex;
@@ -258,7 +258,7 @@ td p {
   }
   .head {
     font-size: 18px;
-    padding: 1px 3px;
+    padding: 1px 7px;
     border-bottom: rgb(153, 150, 150) 1px solid;
     margin-top: 0;
   }
@@ -333,7 +333,8 @@ td p {
     padding: 10px 8px;
   }
   img {
-    width: 70%;
+    width: 75%;
+    height: 35%;
   }
   .headline {
     text-align: center;
@@ -372,6 +373,7 @@ td p {
   }
   img {
     width: 75%;
+    height: 30%;
   }
   h1 {
     letter-spacing: 1px;
@@ -489,7 +491,7 @@ td p {
   }
   img {
     width: 80%;
-    height: 60%;
+    height: 30%;
   }
 
   #i {

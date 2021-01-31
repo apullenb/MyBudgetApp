@@ -58,9 +58,9 @@ function DebtList(props) {
     <div className="bills">
       <h3>Long Term Debt</h3>
       {debt.length === 0 ? (
-        <div style={{ textAlign: "center", fontWeight: "600", color: "red" }}>
-          Add New Debt
-        </div>
+        <h4 style={{ textAlign: "center", fontWeight: "600", color: "red" }}>
+          no debt added yet
+        </h4>
       ) : (
         <div></div>
       )}

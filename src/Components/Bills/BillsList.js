@@ -54,9 +54,9 @@ function BillsList(props) {
     <div className="bills">
       <h3>Bills</h3>
       {bills.length === 0 ? (
-        <div style={{ textAlign: "center", fontWeight: "600", color: "red" }}>
-          Add New Bills
-        </div>
+        <h4 style={{ textAlign: "center", fontWeight: "600", color: "red" }}>
+          No bills Added yet
+        </h4>
       ) : (
         <div></div>
       )}
