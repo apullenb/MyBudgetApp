@@ -35,7 +35,7 @@ function Income(props) {
 
 
     return (
-        <tr><button id='x' onClick={(e)=> handleDelete(e)}>x</button><td>{income.source}</td><td>${income.amount}
+        <tr><button id='x' onClick={(e)=> handleDelete(e)}>x</button><td id='i'>{income.source}</td><td>${income.amount}
             {/* <p className={show}  onClick={expand}>${income.amount}</p> <p className={hide}>$<input type='text' value={paid} onChange={(e)=>setPaid(e.target.value)}/> <button onClick={(e)=>handleEdit(e)}> + </button></p>  */}
             </td></tr>
     )
