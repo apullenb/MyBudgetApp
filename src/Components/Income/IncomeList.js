@@ -75,7 +75,7 @@ function IncomeList(props) {
           <th>
             {display === "hidden" && <button onClick={addNew}>+ Add</button>}{" "}
           </th>{" "}
-          <th className="head">Total: ${totalIncome()}</th>
+          <th className="head">Total: ${totalIncome().toLocaleString()}</th>
         </tr>{" "}
       </table>
       <section className={display}>

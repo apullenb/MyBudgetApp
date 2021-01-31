@@ -13,7 +13,7 @@ function Remainder(props) {
         </tr>
         <tr>
           <th className="head">Remaining Funds</th>
-          <th className="head">${total}</th>
+          <th className="head">${total.toLocaleString()}</th>
         </tr>
       </table>
     </div>
