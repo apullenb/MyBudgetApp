@@ -59,18 +59,16 @@ function Dashboard(props) {
       <h2 className="headline">Current Budget Month: {month}</h2>
 
       <section className="grid">
-      <div>
+      
           <Remainder month={month} income={incTotal} billsDue={billTotal} />
-        </div>
-        <div>
           <IncomeList month={month} total={getIncTotal} />
-        </div>
-        <div>
+      
+        
           <BillsList month={month} total={getBillsTotal} />
-        </div>
-        <div>
+    
+       
           <DebtList month={month} />
-        </div>
+        
       </section>
     </div>
   );

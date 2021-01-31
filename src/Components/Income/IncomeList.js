@@ -57,7 +57,7 @@ function IncomeList(props) {
              return <Income key ={source.id} income={source} submit={handleSubmit} getAll={getallIncome} />
             }) ) : (<h4>No Income Added Yet</h4> ) } 
             <tr>
-            <th> </th>  <th>{display === 'hidden' && (<button onClick={addNew}>+ Add New</button> )} </th> <th>Total: {' '} ${totalIncome()}</th> 
+            <th> </th>  <th>{display === 'hidden' && (<button onClick={addNew}>+ Add</button> )} </th> <th className='head'>Total: {' '} ${totalIncome()}</th> 
             </tr> </table> 
             <section className={display}> <AddIncome month={props.month} getAll={getallIncome} close={addNew}/> <button onClick={addNew}>Cancel</button> </section>
              

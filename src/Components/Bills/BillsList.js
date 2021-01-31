@@ -78,7 +78,7 @@ function BillsList(props) {
         
         <th> </th>
         <th>
-          {display === "hidden" && <button onClick={addNew}>+ Add New</button>}
+          {display === "hidden" && <button onClick={addNew}>+ Add</button>}
         </th>
         <th className='head'>Total: ${totalDue()}</th> <th className='head'>Total Paid: ${totalPaid()}</th>
         <th className='head'>Total Due: ${amountDue.toLocaleString()}</th>

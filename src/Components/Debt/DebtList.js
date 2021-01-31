@@ -84,12 +84,12 @@ function DebtList(props) {
           <th> </th>
           <th className='head'>
             {display === "hidden" && (
-              <button onClick={addNew}>+ Add New</button>
+              <button onClick={addNew}>+ Add</button>
             )}
           </th>
-          <th> </th> <th className='head'>Total Balance: ${totalCurrent().toLocaleString()} </th>
-          <th className='head'>Total Min: ${totalMin().toLocaleString()} </th>
-          <th className='head'>Total Paid: ${totalPaid().toLocaleString()} </th>
+          <th> </th> <th className='head'> ${totalCurrent().toLocaleString()} </th>
+          <th className='head'>${totalMin().toLocaleString()} </th>
+          <th className='head'> ${totalPaid().toLocaleString()} </th>
         </tr>
       </table>
       <section className={display}>
