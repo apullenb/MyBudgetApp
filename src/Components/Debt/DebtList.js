@@ -6,7 +6,7 @@ import Debt from "./Debt";
 function DebtList(props) {
   const [debt, setDebt] = useState("");
   const [display, setDisplay] = useState("hidden");
-
+  
   function addNew() {
     display === "hidden" ? setDisplay("expand") : setDisplay("hidden");
   }
@@ -59,7 +59,7 @@ function DebtList(props) {
   return (
     <div className="bills">
       <h3>Long Term Debt</h3>
-
+    {debt.length === 0 ? ( <div style={{textAlign:'center', fontWeight:'600', color:'red'}}>Add New Debt</div> ) : (<div></div> )}
       <table>
         <tr>
           <th> </th>
@@ -79,7 +79,7 @@ function DebtList(props) {
                 getAll={getallDebt}
               />
             )})
-          ) : ( <h4>No Debt Added Yet</h4> )}
+          ) : ( <div></div>) }
         <tr>
           <th> </th>
           <th className='head'>

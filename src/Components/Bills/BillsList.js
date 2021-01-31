@@ -55,6 +55,7 @@ function BillsList(props) {
   return (
     <div className="bills">
       <h3>Bills</h3>
+      {bills.length === 0 ? ( <div style={{textAlign:'center', fontWeight:'600', color:'red'}}>Add New Bills</div> ) : (<div></div> )}
       <table>
         <tr>
           <th> </th>
@@ -74,7 +75,7 @@ function BillsList(props) {
               />
             );
           })
-         ) : ( <h4>No Bills Added Yet</h4>) }
+         ) : ( <div></div>) }
         
         <th> </th>
         <th>

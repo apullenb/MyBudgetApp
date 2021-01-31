@@ -48,14 +48,14 @@ function IncomeList(props) {
     return (
         <div className='bills'>
             <h3>Income</h3>
-          
+            {income.length === 0 ? ( <div style={{textAlign:'center', fontWeight:'600', color:'red'}}>Add New Income</div> ) : (<div></div> )}
             <table>
                 <tr>
                 <th> </th> <th className='head'>Source</th>  <th className='head'>Amount</th> 
                 </tr>
                 {income.length ?  (   income.map(source => {
              return <Income key ={source.id} income={source} submit={handleSubmit} getAll={getallIncome} />
-            }) ) : (<h4>No Income Added Yet</h4> ) } 
+            }) ) : (<div></div> ) } 
             <tr>
             <th> </th>  <th>{display === 'hidden' && (<button onClick={addNew}>+ Add</button> )} </th> <th className='head'>Total: {' '} ${totalIncome()}</th> 
             </tr> </table> 
