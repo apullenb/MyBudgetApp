@@ -21,7 +21,7 @@ function AddIncome(props) {
       amount,
       month,
     };
-    console.log(body);
+   
     if (inputs === "") {
       return alert("Please fill out all fields");
     }
@@ -36,21 +36,28 @@ function AddIncome(props) {
       alert(parseRes.error);
       console.error(parseRes.error);
     } else {
-      props.close()
+      props.close();
       setInputs({
         source: "",
         amount: "",
-      })
-      props.getAll()
+      });
+      props.getAll();
     }
   };
 
   return (
-    <div style={{border:'1px solid gray', padding:'15px', backgroundColor:'#d4ebfd8e'}}>
-    <h3>Add New Income</h3>
+    <div
+      style={{
+        border: "1px solid gray",
+        padding: "15px",
+        backgroundColor: "#d4ebfd8e",
+      }}
+    >
+      <h3>Add New Income</h3>
       <span>
         Income Source:{" "}
-        <input style={{marginLeft:'1px', marginRight:'8px', padding:'0px 55px'}}
+        <input
+          style={{ marginLeft: "1px", marginRight: "8px", padding: "0px 55px" }}
           type="text"
           name="source"
           onChange={(e) => onChange(e)}
@@ -60,11 +67,12 @@ function AddIncome(props) {
       <span>
         {" "}
         Income Amount: $
-        <input style={{marginLeft:'1px', marginRight:'8px', padding:'0px 5px'}}
+        <input
+          style={{ marginLeft: "1px", marginRight: "8px", padding: "0px 5px" }}
           type="text"
           name="amount"
           onChange={(e) => onChange(e)}
-          value={amount.replace(/,/g, '')}
+          value={amount.replace(/,/g, "")}
           required
         />
       </span>{" "}

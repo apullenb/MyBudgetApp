@@ -6,7 +6,7 @@ import Debt from "./Debt";
 function DebtList(props) {
   const [debt, setDebt] = useState("");
   const [display, setDisplay] = useState("hidden");
-  
+
   function addNew() {
     display === "hidden" ? setDisplay("expand") : setDisplay("hidden");
   }
@@ -18,18 +18,16 @@ function DebtList(props) {
       });
       const parseRes = await response.json();
       setDebt(parseRes);
-      console.log(parseRes);
     } catch (error) {
       console.error(error.message);
     }
   }
-  
+
   useEffect(() => {
     getallDebt();
   }, []);
 
   const handleSubmit = (value) => {
-    console.log("submitted!" + value);
   };
 
   function totalMin() {
@@ -59,7 +57,13 @@ function DebtList(props) {
   return (
     <div className="bills">
       <h3>Long Term Debt</h3>
-    {debt.length === 0 ? ( <div style={{textAlign:'center', fontWeight:'600', color:'red'}}>Add New Debt</div> ) : (<div></div> )}
+      {debt.length === 0 ? (
+        <div style={{ textAlign: "center", fontWeight: "600", color: "red" }}>
+          Add New Debt
+        </div>
+      ) : (
+        <div></div>
+      )}
       <table>
         <tr>
           <th> </th>
@@ -69,8 +73,9 @@ function DebtList(props) {
           <th className="head">Monthly Min</th>
           <th className="head">Payment Amount</th>
         </tr>
-      
-         {debt.length ? ( debt.map((source) => {
+
+        {debt.length ? (
+          debt.map((source) => {
             return (
               <Debt
                 key={source.id}
@@ -78,22 +83,23 @@ function DebtList(props) {
                 submit={handleSubmit}
                 getAll={getallDebt}
               />
-            )})
-          ) : ( <div></div>) }
+            );
+          })
+        ) : (
+          <div></div>
+        )}
         <tr>
           <th> </th>
-          <th className='head'>
-            {display === "hidden" && (
-              <button onClick={addNew}>+ Add</button>
-            )}
+          <th className="head">
+            {display === "hidden" && <button onClick={addNew}>+ Add</button>}
           </th>
-          <th> </th> <th className='head'> ${totalCurrent().toLocaleString()} </th>
-          <th className='head'>${totalMin().toLocaleString()} </th>
-          <th className='head'> ${totalPaid().toLocaleString()} </th>
+          <th> </th>{" "}
+          <th className="head"> ${totalCurrent().toLocaleString()} </th>
+          <th className="head">${totalMin().toLocaleString()} </th>
+          <th className="head"> ${totalPaid().toLocaleString()} </th>
         </tr>
       </table>
       <section className={display}>
-        
         <AddDebt month={props.month} getAll={getallDebt} close={addNew} />
         <button onClick={addNew}>Cancel</button>
       </section>

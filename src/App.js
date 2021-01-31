@@ -1,20 +1,23 @@
-import './App.css';
-import {  BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import "./App.css";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faEdit, faPen, faCoins } from '@fortawesome/free-solid-svg-icons'
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faEdit, faPen, faCoins } from "@fortawesome/free-solid-svg-icons";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
-import Header from './Components/Header'
-import Dashboard from './Pages/Dashboard';
-import Register from './Pages/Register'
-import config from './config'
+import Header from "./Components/Header";
+import Dashboard from "./Pages/Dashboard";
+import Register from "./Pages/Register";
+import config from "./config";
 
-
-library.add(faEdit, faPen, faCoins)
+library.add(faEdit, faPen, faCoins);
 
 function App() {
-
   useEffect(() => {
     isAuthCheck();
   }, []);
@@ -44,7 +47,7 @@ function App() {
 
   return (
     <div>
-   <Router>
+      <Router>
         <div className="App">
           <Header setAuth={setAuth} isAuth={isAuthenticated} />
 
@@ -84,7 +87,7 @@ function App() {
 
           <Route exact path="/" component={Home} />
 
-          {/* <Footer /> */}
+          
         </div>
       </Router>
     </div>

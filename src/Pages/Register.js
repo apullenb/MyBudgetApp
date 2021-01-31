@@ -18,7 +18,7 @@ function Register(props) {
     try {
       const body = { first_name, user_name, password };
       if (!user_name || !password || !first_name) {
-        alert('All Fields Must Be Completed')
+        alert("All Fields Must Be Completed");
       }
       const response = await fetch(
         `${config.API_ENDPOINT}/api/users/register`,
@@ -41,12 +41,12 @@ function Register(props) {
     }
   };
   return (
-    <div className='login'>
+    <div className="login">
       <h2>Register</h2>
       <form>
         <label>
           {" "}
-         Your First Name:
+          Your First Name:
           <p>
             <input
               type="text"
@@ -74,7 +74,13 @@ function Register(props) {
           {" "}
           Create Password:
           <p>
-            <input type="password" name="password" value ={password}  onChange={(e) => onChange(e)} required/>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={(e) => onChange(e)}
+              required
+            />
           </p>{" "}
         </label>
         <button onClick={onSubmit}>Create Account</button>

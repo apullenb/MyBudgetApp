@@ -19,7 +19,6 @@ function BillsList(props) {
       });
       const parseRes = await response.json();
       setBills(parseRes);
-      console.log(parseRes);
     } catch (error) {
       console.error(error.message);
     }
@@ -30,7 +29,6 @@ function BillsList(props) {
   }, []);
 
   const handleSubmit = (value) => {
-    console.log("submitted!" + value);
   };
 
   let amountDue = totalDue() - totalPaid();
@@ -55,7 +53,13 @@ function BillsList(props) {
   return (
     <div className="bills">
       <h3>Bills</h3>
-      {bills.length === 0 ? ( <div style={{textAlign:'center', fontWeight:'600', color:'red'}}>Add New Bills</div> ) : (<div></div> )}
+      {bills.length === 0 ? (
+        <div style={{ textAlign: "center", fontWeight: "600", color: "red" }}>
+          Add New Bills
+        </div>
+      ) : (
+        <div></div>
+      )}
       <table>
         <tr>
           <th> </th>
@@ -64,8 +68,8 @@ function BillsList(props) {
           <th className="head">Amount Paid</th>
           <th className="head">Balance Due </th>
         </tr>
-        
-         {bills.length ? ( bills.map((source) => {
+        {bills.length ? (
+          bills.map((source) => {
             return (
               <Bill
                 key={source.id}
@@ -75,14 +79,16 @@ function BillsList(props) {
               />
             );
           })
-         ) : ( <div></div>) }
-        
+        ) : (
+          <div></div>
+        )}
         <th> </th>
         <th>
           {display === "hidden" && <button onClick={addNew}>+ Add</button>}
         </th>
-        <th className='head'>Total: ${totalDue()}</th> <th className='head'>Total Paid: ${totalPaid()}</th>
-        <th className='head'>Total Due: ${amountDue.toLocaleString()}</th>
+        <th className="head">Total: ${totalDue()}</th>{" "}
+        <th className="head">Total Paid: ${totalPaid()}</th>
+        <th className="head">Total Due: ${amountDue.toLocaleString()}</th>
       </table>
       <section className={display}>
         <AddBill month={props.month} getAll={getAllBills} close={addNew} />
